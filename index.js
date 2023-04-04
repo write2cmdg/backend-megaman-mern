@@ -11,12 +11,6 @@ app.use(express.json())
 app.use(cors());
 
 
-// // Set the 'Access-Control-Allow-Origin' header to allow requests from all domains
-// app.use((req, res, next) => {
-//     res.setHeader('Access-Control-Allow-Origin', 'http://localhost:4000/');
-//     next();
-//   });
-
 //Routes
 app.use(('/api/robotMaster', robotMasterRoutes))
 
