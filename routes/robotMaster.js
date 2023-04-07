@@ -19,7 +19,7 @@ router.post('/', createRobotMaster)
 
 router.delete('/:id', deleteRobotMaster)
 
-router.patch('/:id', updateRobotMaster)
+router.put('/:id', updateRobotMaster)
 
 
 
