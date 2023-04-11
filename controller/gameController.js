@@ -37,7 +37,7 @@ const getGame = async (req, res) => {
 const createGame = async (req, res) => {
 
     const { 
-        name,
+        title,
         year,
         story,
         bosses
@@ -45,9 +45,9 @@ const createGame = async (req, res) => {
 
     let emptyFields = []
 
-    if (!name) {
+    if (!title) {
 
-        emptyFields.push('Name')
+        emptyFields.push('title')
     }
     if (!year) {
 
@@ -71,7 +71,7 @@ const createGame = async (req, res) => {
     try {
 
         const game = await Game.create({     
-            name,
+            title,
             year,
             story,
             bosses 

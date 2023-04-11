@@ -6,7 +6,7 @@ const gameSchema = new mongoose.Schema(
 
     {
 
-        name: {
+        title: {
             type: String,
             unique: true,
             required: true

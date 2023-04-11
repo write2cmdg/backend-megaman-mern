@@ -13,8 +13,8 @@ app.use(cors());
 
 
 //Routes
-app.use(('/api/robotMaster', robotMasterRoutes))
-app.use(('/api/game', gameRoutes))
+app.use(('/api', robotMasterRoutes))
+app.use(('/api', gameRoutes))
 
 
 mongoose.connect(process.env.MONGODB_URI)

@@ -11,15 +11,15 @@ const router = express.Router()
 
 //router.use(requireAuth)//require auth for all paths
 
-router.get('/game', getGames)
+router.get('/allGames', getGames)
 
-router.get('/game/:id', getGame)
+router.get('/oneGame/:id', getGame)
 
-router.post('/game/', createGame)
+router.post('/createGame/', createGame)
 
-router.delete('/game/:id', deleteGame)
+router.delete('/deleteGame/:id', deleteGame)
 
-router.put('/game/:id', updateGame)
+router.put('/updateGame/:id', updateGame)
 
 
 

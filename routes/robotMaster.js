@@ -11,15 +11,15 @@ const router = express.Router()
 
 //router.use(requireAuth)//require auth for all paths
 
-router.get('/', getRobotMasters)
+router.get('/allBosses', getRobotMasters)
 
-router.get('/:id', getRobotMaster)
+router.get('/oneBoss:id', getRobotMaster)
 
-router.post('/', createRobotMaster)
+router.post('/createBoss', createRobotMaster)
 
-router.delete('/:id', deleteRobotMaster)
+router.delete('/deleteBoss/:id', deleteRobotMaster)
 
-router.put('/:id', updateRobotMaster)
+router.put('/updateBoss/:id', updateRobotMaster)
 
 
 
