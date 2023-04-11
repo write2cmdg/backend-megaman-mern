@@ -18,14 +18,14 @@ const getGame = async (req, res) => {
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
 
-        return res.status(404).json({ error: 'game not found'})
+        return res.status(404).json({ error: 'Game not found'})
     }
 
     const game = await Game.findById(id)
 
     if (!game) {
 
-        return res.status(404).json({ error: `game: ${id}, not found` })
+        return res.status(404).json({ error: `Game: ${id}, not found` })
     }
 
     res.status(200).json(game)
@@ -38,55 +38,43 @@ const createGame = async (req, res) => {
 
     const { 
         name,
-        HP,
-        weapon,
-        attack,
-        weakness,
-        game 
+        year,
+        story,
+        bosses
     } = req.body
 
     let emptyFields = []
 
     if (!name) {
 
-        emptyFields.push('name')
+        emptyFields.push('Name')
     }
-    if (!HP) {
+    if (!year) {
 
-        emptyFields.push('HP')
+        emptyFields.push('Year')
     }
-    if (!weapon) {
+    if (!story) {
 
-        emptyFields.push('weapon')
+        emptyFields.push('Story')
     }
-    if (!attack) {
+    if (!bosses) {
 
-        emptyFields.push('attack')
-    }
-    if (!weakness) {
-
-        emptyFields.push('weakness')
-    }
-    if (!game) {
-
-        emptyFields.push('game')
+        emptyFields.push('Robot Masters')
     }
     if (emptyFields.length > 0) {
 
         return res.status(400).json({ error: 'Please fill in all the fields', emptyFields })
     }
-
+   
 
     //add doc to db
     try {
 
         const game = await Game.create({     
             name,
-            HP,
-            weapon,
-            attack,
-            weakness,
-            game  
+            year,
+            story,
+            bosses 
         })
         res.status(200).json(game)
 
@@ -104,7 +92,7 @@ const deleteGame = async (req, res) => {
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
 
-        return res.status(404).json({ error: 'game not found'})
+        return res.status(404).json({ error: 'Game not found'})
     }
 
     const game = await Game.findOneAndDelete({_id: id})
@@ -126,7 +114,7 @@ const updateGame = async (req, res) => {
     const { id } = req.params 
 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(404).json({ error: 'game not found'})
+        return res.status(404).json({ error: 'Game not found'})
     }
 
     const game = await Game.findByIdAndUpdate({_id: id}, {
