@@ -13,7 +13,7 @@ const router = express.Router()
 
 router.get('/allBosses', getRobotMasters)
 
-router.get('/oneBoss:id', getRobotMaster)
+router.get('/oneBoss/:id', getRobotMaster)
 
 router.post('/createBoss', createRobotMaster)
 
