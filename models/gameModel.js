@@ -21,11 +21,11 @@ const gameSchema = new mongoose.Schema(
             unique: false,
             required: false
         },
-        bosses: {
+        bosses: [{
             type: String,
             unique: false,
             required: true
-        }
+        }]
     },
     {
         timestamps: true

@@ -38,7 +38,7 @@ const createRobotMaster = async (req, res) => {
 
     const { 
         name,
-        HP,
+        hp,
         weapon,
         attack,
         weakness,
@@ -51,9 +51,9 @@ const createRobotMaster = async (req, res) => {
 
         emptyFields.push('name')
     }
-    if (!HP) {
+    if (!hp) {
 
-        emptyFields.push('HP')
+        emptyFields.push('hp')
     }
     if (!weapon) {
 
@@ -82,7 +82,7 @@ const createRobotMaster = async (req, res) => {
 
         const robotMaster = await RobotMaster.create({     
             name,
-            HP,
+            hp,
             weapon,
             attack,
             weakness,
