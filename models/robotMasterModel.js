@@ -11,7 +11,7 @@ const robotMasterSchema = new mongoose.Schema(
             unique: true,
             required: true
         },
-        HP: {
+        hp: {
             type: String,
             unique: false,
             required: true
