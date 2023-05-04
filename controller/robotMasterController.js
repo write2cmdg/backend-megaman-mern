@@ -32,6 +32,22 @@ const getRobotMaster = async (req, res) => {
 
 }
 
+//get one by name
+const getRobotMasterByName = async (req, res) => {
+
+    const { name } = req.params 
+
+    const robotMaster = await RobotMaster.find({name: req.params.name})
+
+    if (!robotMaster) {
+
+        return res.status(404).json({ error: `robotMaster: ${id}, not found` })
+    }
+
+    res.status(200).json(robotMaster)
+
+}
+
 
 //create new
 const createRobotMaster = async (req, res) => {
@@ -145,6 +161,7 @@ const updateRobotMaster = async (req, res) => {
 module.exports = {
     createRobotMaster,
     getRobotMaster,
+    getRobotMasterByName,
     getRobotMasters,
     deleteRobotMaster,
     updateRobotMaster

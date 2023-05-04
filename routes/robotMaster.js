@@ -4,7 +4,8 @@ const {
     getRobotMaster,
     getRobotMasters,
     deleteRobotMaster,
-    updateRobotMaster
+    updateRobotMaster,
+    getRobotMasterByName
 } = require('../controller/robotMasterController')
 //const requireAuth = require('../middleware/requireAuth')
 const router = express.Router()
@@ -14,6 +15,8 @@ const router = express.Router()
 router.get('/allBosses', getRobotMasters)
 
 router.get('/oneBoss/:id', getRobotMaster)
+
+router.get('/oneBoss/:name', getRobotMasterByName)
 
 router.post('/createBoss', createRobotMaster)
 
