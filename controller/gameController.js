@@ -31,6 +31,21 @@ const getGame = async (req, res) => {
     res.status(200).json(game)
 
 }
+//get one by name
+const getGameByName = async (req, res) => {
+
+    const { name } = req.params 
+
+    const game = await Game.findOne({name: req.params.name})
+
+    if (!game) {
+
+        return res.status(404).json({ error: `game: ${name}, not found` })
+    }
+
+    res.status(200).json(game)
+
+}
 
 
 //create new
@@ -133,6 +148,7 @@ const updateGame = async (req, res) => {
 module.exports = {
     createGame,
     getGame,
+    getGameByName,
     getGames,
     deleteGame,
     updateGame

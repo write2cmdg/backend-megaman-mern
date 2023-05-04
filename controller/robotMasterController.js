@@ -37,11 +37,11 @@ const getRobotMasterByName = async (req, res) => {
 
     const { name } = req.params 
 
-    const robotMaster = await RobotMaster.find({name: req.params.name})
+    const robotMaster = await RobotMaster.findOne({name: req.params.name})
 
     if (!robotMaster) {
 
-        return res.status(404).json({ error: `robotMaster: ${id}, not found` })
+        return res.status(404).json({ error: `robotMaster: ${name}, not found` })
     }
 
     res.status(200).json(robotMaster)

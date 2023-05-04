@@ -16,7 +16,7 @@ router.get('/allBosses', getRobotMasters)
 
 router.get('/oneBoss/:id', getRobotMaster)
 
-router.get('/oneBoss/:name', getRobotMasterByName)
+router.get('/oneBossByName/:name', getRobotMasterByName)
 
 router.post('/createBoss', createRobotMaster)
 

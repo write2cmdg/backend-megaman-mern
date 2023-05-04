@@ -2,6 +2,7 @@ const express = require('express')
 const {
     createGame,
     getGame,
+    getGameByName,
     getGames,
     deleteGame,
     updateGame
@@ -14,6 +15,8 @@ const router = express.Router()
 router.get('/allGames', getGames)
 
 router.get('/oneGame/:id', getGame)
+
+router.get('/oneGameByName/:id', getGameByName)
 
 router.post('/createGame/', createGame)
 
