@@ -16,7 +16,7 @@ router.get('/allGames', getGames)
 
 router.get('/oneGame/:id', getGame)
 
-router.get('/oneGameByName/:id', getGameByName)
+router.get('/oneGameByName/:title', getGameByName)
 
 router.post('/createGame/', createGame)
 

@@ -34,13 +34,14 @@ const getGame = async (req, res) => {
 //get one by name
 const getGameByName = async (req, res) => {
 
-    const { name } = req.params 
+    const { title } = req.params 
 
-    const game = await Game.findOne({name: req.params.name})
+    const game = await Game.findOne({title: req.params.title})
+
 
     if (!game) {
 
-        return res.status(404).json({ error: `game: ${name}, not found` })
+        return res.status(404).json({ error: `Game: ${title}, not found` })
     }
 
     res.status(200).json(game)
