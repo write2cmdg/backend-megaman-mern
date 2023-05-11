@@ -19,7 +19,7 @@ const userSchema = new Schema({
 )
 
 //static register method
-userSchema.statics.register = async (email, password) => {
+userSchema.statics.register = async function (email, password) {
 
     const exists = await this.findOne({ email })
 
