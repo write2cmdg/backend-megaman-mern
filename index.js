@@ -5,6 +5,7 @@ dotenv.config();
 const mongoose = require('mongoose')
 const robotMasterRoutes = require('./routes/robotMaster')
 const gameRoutes = require('./routes/game')
+const userRoutes = require('./routes/user')
 const cors = require('cors')
 
 //Middleware
@@ -15,6 +16,7 @@ app.use(cors());
 //Routes
 app.use(('/api', robotMasterRoutes))
 app.use(('/api', gameRoutes))
+app.use(('/api', userRoutes))
 
 
 mongoose.connect(process.env.MONGODB_URI)
