@@ -7,6 +7,7 @@ const robotMasterRoutes = require('./routes/robotMaster')
 const gameRoutes = require('./routes/game')
 const userRoutes = require('./routes/user')
 const cors = require('cors')
+const path = require("path")
 
 //Middleware
 app.use(express.json())
@@ -17,6 +18,13 @@ app.use(cors());
 app.use(('/api', robotMasterRoutes))
 app.use(('/api', gameRoutes))
 app.use(('/api', userRoutes))
+
+app.use(express.static("public"));
+app.get("/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../public/index.html"), err => {
+      if (err) res.status(500).send(err);
+    });
+ });
 
 
 mongoose.connect(process.env.MONGODB_URI)
