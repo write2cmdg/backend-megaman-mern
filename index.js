@@ -15,7 +15,7 @@ app.use(cors());
 app.use(express.static("public"));
 
 //Routes
-app.use("/api", robotMasterRoutes)
+app.use("/api", robotMasterRoutes);
 app.use("/api", gameRoutes);
 app.use("/api", userRoutes);
 
