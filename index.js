@@ -10,10 +10,10 @@ const cors = require("cors");
 const path = require("path");
 
 //Middleware
-app.use(express.json());
 app.use(cors({
-    origin: 'https://megaman-api-server.onrender.com'
+  origin: 'https://megamandb-api.onrender.com'
 }));
+app.use(express.json());
 app.use(express.static("public"));
 
 //Routes
