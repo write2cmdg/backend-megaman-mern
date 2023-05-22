@@ -15,12 +15,12 @@ app.use(cors());
 app.use(express.static("public"));
 
 //Routes
-app.use(("/api", robotMasterRoutes));
-app.use(("/api", gameRoutes));
-app.use(("/api", userRoutes));
+app.use("/api", robotMasterRoutes)
+app.use("/api", gameRoutes);
+app.use("/api", userRoutes);
 
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/index"), (err) => {
+  res.sendFile(path.join(__dirname, "/index.html"), (err) => {
     if (err) res.status(500).send(err);
   });
 });
