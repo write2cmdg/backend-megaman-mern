@@ -9,12 +9,12 @@ const userRoutes = require("./routes/user");
 const cors = require("cors");
 const path = require("path");
 
-//Middleware
+// Middleware
 app.use(express.json());
 app.use(cors());
 app.use(express.static("public"));
 
-//Routes
+// Routes
 app.use("/api", robotMasterRoutes);
 app.use("/api", gameRoutes);
 app.use("/api", userRoutes);
@@ -24,10 +24,6 @@ app.get("/*", (req, res) => {
     if (err) res.status(500).send(err);
   });
 });
-
-// app.get('/*', function(req, res) {
-// res.sendFile(path.join(__dirname, '/index.html'));
-// });
 
 mongoose
   .connect(process.env.MONGODB_URI)
