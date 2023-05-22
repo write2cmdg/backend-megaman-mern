@@ -20,7 +20,7 @@ app.use(("/api", gameRoutes));
 app.use(("/api", userRoutes));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public/index.html"), (err) => {
+  res.sendFile(path.join(__dirname, "/index.html"), (err) => {
     if (err) res.status(500).send(err);
   });
 });
