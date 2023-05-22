@@ -20,12 +20,14 @@ app.use(("/api", gameRoutes));
 app.use(("/api", userRoutes));
 
 app.get("*", (req, res) => {
-
-  res.sendFile(path.join(__dirname, "/public/index.html"), (err) => {
-    if (err) res.status(500).send(err);
+    res.sendFile(path.join(__dirname, "public", "index.html"), (err) => {
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+      }
+    });
   });
   
-});
 
 
 mongoose
