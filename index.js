@@ -12,7 +12,7 @@ const path = require("path");
 //Middleware
 app.use(express.json());
 app.use(cors({
-  origin: 'https://megaman-api-server.onrender.com'
+    origin: 'https://megaman-api-server.onrender.com'
 }));
 app.use(express.static("public"));
 
