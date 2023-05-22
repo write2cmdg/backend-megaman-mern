@@ -19,15 +19,15 @@ app.use(("/api", robotMasterRoutes));
 app.use(("/api", gameRoutes));
 app.use(("/api", userRoutes));
 
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "/index.html"), (err) => {
-//     if (err) res.status(500).send(err);
-//   });
-// });
-
-app.get('/*', function(req, res) {
-res.sendFile(path.join(__dirname, '/index.html'));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html"), (err) => {
+    if (err) res.status(500).send(err);
+  });
 });
+
+// app.get('/*', function(req, res) {
+// res.sendFile(path.join(__dirname, '/index.html'));
+// });
 
 mongoose
   .connect(process.env.MONGODB_URI)
