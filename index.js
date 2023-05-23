@@ -17,12 +17,12 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Routes
-app.use(("/api", robotMasterRoutes));
-app.use(("/api", gameRoutes));
-app.use(("/api", userRoutes));
+app.use(("/api/#", robotMasterRoutes));
+app.use(("/api/#", gameRoutes));
+app.use(("/api/#", userRoutes));
 
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"), (err) => {
+app.get("/#/*", (req, res) => {
+    res.sendFile(path.join(__dirname, "/public", "/index.html"), (err) => {
       if (err) {
         console.log(err);
         res.sendStatus(500);
